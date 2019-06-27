@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ToastController } from 'ionic-angular';
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -23,7 +24,8 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               private afAuth: AngularFireAuth,
               private db: AngularFireDatabase,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              public toastCtrl: ToastController) {
 
     
     this.userForm = this.fb.group({
@@ -38,10 +40,6 @@ export class HomePage {
       this.onValueChanged(data));
       this.onValueChanged();
   }
-
-  
-
-
 
   createUser() {
     return this.afAuth.auth.createUserWithEmailAndPassword(this.email, "givingcasino1")
@@ -64,6 +62,15 @@ export class HomePage {
       })
     .catch(error =>
       console.log("createUser error: " + error));
+  }
+
+  toastCheck(position: string) {
+    const toast = this.toastCtrl.create({
+      message: 'Your information was recorded and we have sent you a confirmation email.',
+      duration: 9000,
+      position: position
+    });
+    toast.present(toast);
   }
   
   onValueChanged(data?: any) {

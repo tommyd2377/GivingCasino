@@ -77,7 +77,7 @@
                         {{ formErrors.email }}
                     </div>
                   <br>
-                    <button outline type="submit" [disabled]="!userForm.valid">Sign Up</button>
+                    <button outline type="submit" [disabled]="!userForm.valid" (click)="toastCheck('top')">Sign Up</button>
                 </form>
               </div>
         </div>                   
