@@ -1,18 +1,21 @@
 <ion-content padding class="bg-style">
     <div id="container" style="width:100%;">                                   
         <div padding id="left" style="float:left; width:50%;">
-            <div>
-              <div style=" width: 100%; text-align: center;">
+            <div style="text-align: center; color: white">
+              <div style="width: 100%; text-align: center;">
                 <img src="../../assets/giving-casino.png" style="height: 60px; width: 60px; display: inline-block;" alt="">
               </div>
                 <h3>
-                  This brand new Rolex can be yours, on us.
+                  This brand new Rolex
+                  <br>
+                  can be yours, on us.
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                  Accusamus porro animi maxime suscipit a eius quibusdam, 
-                  vel obcaecati ipsam labore, enim perspiciatis vero quaerat 
-                  et quos? Incidunt rem quidem quaerat?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  <br>
+                  Cupiditate quae, impedit accusantium qui culpa quia odio 
+                  <br>
+                  officiis commodi rem quos sint quasi. Et?
                 </p>
               </div>
               <div style="border-radius: 25px">
@@ -34,56 +37,58 @@
               </div>
               <br>
               <div style=" width: 100%; text-align: center;">
-                <button style="display: inline-block" ion-button round>Enter to win now!</button>
+                <button style="display: inline-block; background-color: green" ion-button round>Enter to win now!</button>
               </div>
         </div>                     
         <div padding class="input-style" id="right" style="float:right; width:50%; border-radius: 25px">
             <div>
               <img src="../../assets/giving-casino.png" style="height: 100px; width: 100px" alt="">
-                <h3>
-                  Donate $ to charity by playing games and winning prizes
+                <h3 style="color: green">
+                  Donate $ to charity <br> by playing games <br> and winning prizes.
                 </h3>
                 <h6>
-                  Sign up now to make the world a better place, and have some fun along the way
+                  Sign up now to make <br> the world a better place, <br> and have some fun <br> along the way.
                 </h6>
+      
+                <h1>...</h1>
               </div>
               <div>
                 <form [formGroup]="userForm" (ngSubmit)="createUser()">
-                 
-                  <ion-list>
-                    
-                      <ion-item>
-                          <ion-label>Country</ion-label>
-                          <ion-select [(ngModel)]="country" [ngModelOptions]="{standalone: true}">
-                            <ion-option value="nes">Unied States</ion-option>
-                            <ion-option value="n64">United Kingdom</ion-option>
-                            <ion-option value="ps">Canada</ion-option>
-                            <ion-option value="genesis">Australia</ion-option>
-                            <ion-option value="saturn">New Zealand</ion-option>
-                            <ion-option value="snes">Kazakhstan</ion-option>
-                          </ion-select>
-                      </ion-item>
+    
+                  <input type="text" [(ngModel)]="email" placeholder="Email Address"
+                    formControlName="email" style="border-radius: 25px; height: 30px; width: 100%;">
 
-                      <ion-item>
-                          <ion-label floating>Email Address</ion-label>
-                          <ion-input type="text" [(ngModel)]="email" formControlName="email"></ion-input>
-                        </ion-item>
+                    <br>
+                    <br>
 
-                      <ion-item>
-                          <ion-label floating>City</ion-label>
-                          <ion-input type="text" [(ngModel)]="city" [ngModelOptions]="{standalone: true}"></ion-input>
-                        </ion-item>
-                      
-                        <ion-item>
-                          <ion-label floating>Zip Code</ion-label>
-                          <ion-input type="text" [(ngModel)]="zip" [ngModelOptions]="{standalone: true}"></ion-input>
-                        </ion-item>
+                    <select [(ngModel)]="country" [ngModelOptions]="{standalone: true}" 
+                    style="border-radius: 25px; height: 30px; width: 100%;">
+                      <option value="United States">United States</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Australia">Australia</option>
+                      <option value="New Zealand">New Zealand</option>
+                      <option value="Kazakhstan">Kazakhstan</option>
+                    </select>
                     
-                    </ion-list>
+
+                  <br>
+                  <br>
+                  
+                  <input type="text" placeholder="City" [(ngModel)]="city" 
+                    [ngModelOptions]="{standalone: true}" style="border-radius: 25px; height: 30px; width: 49%;">
+
+                  
+                  <input type="text" placeholder="Zip Code" style="border-radius: 25px; height: 30px; width: 49%"
+                    [(ngModel)]="zip" [ngModelOptions]="{standalone: true}">
+
+              
+                       
                     
                     <div style="color: red" *ngIf="formErrors.email">
                         {{ formErrors.email }}
                     </div>
+                  <br>
                   <br>
                     <button ion-button round type="submit" [disabled]="!userForm.valid" (click)="toastCheck('top')">Sign Up</button>
                 </form>
