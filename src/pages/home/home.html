@@ -1,46 +1,59 @@
 <ion-content padding class="bg-style">
     <div id="container" style="width:100%;">                                   
-        <div padding id="left" style="float:left; width:50%;">
+        <div class="left" padding id="left" style="float:left; width:50%;">
+            
             <div style="text-align: center; color: white">
               <div style="width: 100%; text-align: center;">
                 <img src="../../assets/giving-casino.png" style="height: 60px; width: 60px; display: inline-block;" alt="">
               </div>
-                <h3>
-                  This brand new Rolex
-                  <br>
-                  can be yours, on us.
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  <br>
-                  Cupiditate quae, impedit accusantium qui culpa quia odio 
-                  <br>
-                  officiis commodi rem quos sint quasi. Et?
-                </p>
-              </div>
-              <div style="border-radius: 25px">
-              <ion-slides pager style="height: 200px; border-radius: 25px">
+              <h3>
+                This brand new Rolex
+                <br>
+                can be yours, on us.
+              </h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                <br>
+                Cupiditate quae, impedit accusantium qui culpa quia odio 
+                <br>
+                officiis commodi rem quos sint quasi. Et?
+              </p>
+            </div>
+            
+            <div style="border-radius: 25px">
+            <ion-slides pager style="height: 200px; border-radius: 25px">
 
-                  <ion-slide style="background-color: black; border-radius: 25px">
-                    <h2 style="color: white">Slide 1</h2>
-                  </ion-slide>
-                
-                  <ion-slide style="background-color: black; border-radius: 25px">
-                    <h2 style="color: white">Slide 2</h2>
-                  </ion-slide>
-                
-                  <ion-slide style="background-color: black; border-radius: 25px">
-                    <h2 style="color: white">Slide 3</h2>
-                  </ion-slide>
-                
-                </ion-slides>
-              </div>
+                <ion-slide style="background-color: black; border-radius: 25px">
+                  <h2 style="color: white">Slide 1</h2>
+                </ion-slide>
+              
+                <ion-slide style="background-color: black; border-radius: 25px">
+                  <h2 style="color: white">Slide 2</h2>
+                </ion-slide>
+              
+                <ion-slide style="background-color: black; border-radius: 25px">
+                  <h2 style="color: white">Slide 3</h2>
+                </ion-slide>
+              
+              </ion-slides>
+            </div>
+              
               <br>
-              <div style=" width: 100%; text-align: center;">
-                <button style="display: inline-block; background-color: green" ion-button round>Enter to win now!</button>
-              </div>
+            <div style=" width: 100%; text-align: center;">
+              <button style="display: inline-block; background-color: green" ion-button round>Enter to win now!</button>
+            </div>
+              <br>
+            <div style="background-color: black; border-radius: 25px">
+              <input type="text" placeholder="Leave a comment..." [(ngModel)]="comment" 
+                  [ngModelOptions]="{standalone: true}" style="border-radius: 25px; height: 40px; width: 90%;
+                    color: grey; background-color: black; border-color: black">
+                  <button style="background-color: black" ion-button icon-only>
+                      <ion-icon name="paper-plane"></ion-icon>
+                  </button>
+            </div>
         </div>                     
-        <div padding class="input-style" id="right" style="float:right; width:50%; border-radius: 25px">
+          
+        <div padding class="input-style" id="right">
             <div>
               <img src="../../assets/giving-casino.png" style="height: 100px; width: 100px" alt="">
                 <h3 style="color: green">
@@ -49,51 +62,50 @@
                 <h6>
                   Sign up now to make <br> the world a better place, <br> and have some fun <br> along the way.
                 </h6>
-      
                 <h1>...</h1>
-              </div>
-              <div>
-                <form [formGroup]="userForm" (ngSubmit)="createUser()">
-    
-                  <input type="text" [(ngModel)]="email" placeholder="Email Address"
-                    formControlName="email" style="border-radius: 25px; height: 30px; width: 100%;">
-
-                    <br>
-                    <br>
-
-                    <select [(ngModel)]="country" [ngModelOptions]="{standalone: true}" 
-                    style="border-radius: 25px; height: 30px; width: 100%;">
-                      <option value="United States">United States</option>
-                      <option value="United Kingdom">United Kingdom</option>
-                      <option value="Canada">Canada</option>
-                      <option value="Australia">Australia</option>
-                      <option value="New Zealand">New Zealand</option>
-                      <option value="Kazakhstan">Kazakhstan</option>
-                    </select>
-                    
-
-                  <br>
-                  <br>
-                  
-                  <input type="text" placeholder="City" [(ngModel)]="city" 
-                    [ngModelOptions]="{standalone: true}" style="border-radius: 25px; height: 30px; width: 49%;">
-
-                  
-                  <input type="text" placeholder="Zip Code" style="border-radius: 25px; height: 30px; width: 49%"
-                    [(ngModel)]="zip" [ngModelOptions]="{standalone: true}">
-
+            </div>
               
-                       
-                    
-                    <div style="color: red" *ngIf="formErrors.email">
-                        {{ formErrors.email }}
-                    </div>
+            <div>
+              <form [formGroup]="userForm" (ngSubmit)="createUser()">
+      
+                <input type="text" [(ngModel)]="email" placeholder="Email Address"
+                  formControlName="email" style="border-radius: 25px; height: 40px; width: 100%;">
+
                   <br>
                   <br>
-                    <button ion-button round type="submit" [disabled]="!userForm.valid" (click)="toastCheck('top')">Sign Up</button>
-                </form>
-              </div>
+
+                <select [(ngModel)]="country" [ngModelOptions]="{standalone: true}" 
+                style="border-radius: 25px; height: 40px; width: 100%;">
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                </select>
+                
+                  <br>
+                  <br>
+                
+                <input type="text" placeholder="City" [(ngModel)]="city" 
+                  [ngModelOptions]="{standalone: true}" style="border-radius: 25px; height: 40px; width: 49%;">
+
+                <input type="text" placeholder="Zip Code" style="border-radius: 25px; height: 40px; width: 49%"
+                  [(ngModel)]="zip" [ngModelOptions]="{standalone: true}">
+
+                <div style="color: red" *ngIf="formErrors.email">
+                    {{ formErrors.email }}
+                </div>
+                  
+                  <br>
+                  <br>
+                
+                <button ion-button round type="submit" [disabled]="!userForm.valid" (click)="toastCheck('top')" style="height: 50px; width: 65%">Sign Up</button>
+                <button ion-button round style="height: 50px; width: 30%">Sign Up with Facebook</button>
+                  
+              </form>
+            </div>
         </div>                   
-      </div>
+    </div>
   
-  </ion-content>
+</ion-content>

@@ -16,7 +16,7 @@ export class HomePage {
   email: string;
   country: string;
   city: string;
-  zip: string;
+  zip: number;
   date;
   currentTime;
   slideIndex: number;
